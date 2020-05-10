@@ -1,0 +1,20 @@
+.Board {
+  width: 80vw;
+  height: 80vh;
+  overflow: auto;
+  margin: auto;
+  position: relative;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.Board-row {
+  display: flex;
+}
+
+.Board-row:last-child .BoardCell {
+  border-bottom:  1px solid #70757a;
+}
