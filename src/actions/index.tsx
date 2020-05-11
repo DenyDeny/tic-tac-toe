@@ -2,7 +2,7 @@ import { EXECUTE_TURN } from '../constants';
 import { CELL_TYPE, PLAYER_TURN } from '../types';
 
 export interface IPayload {
-  cell: [number, number],
+  cell: number[],
   cellValue: CELL_TYPE,
   turn: PLAYER_TURN,
 }

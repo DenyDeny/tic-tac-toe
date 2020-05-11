@@ -38,7 +38,7 @@ const BoardCell: React.FunctionComponent<IProps> = ({ disabled, type, onClick })
     <div
       onClick={onHandleClick}
       className={classnames('BoardCell', {
-        ['BoardCell-disabled']: type !== CELL_TYPE.EMPTY || disabled,
+        'BoardCell-disabled': type !== CELL_TYPE.EMPTY || disabled,
       })}
     >
       { cell }

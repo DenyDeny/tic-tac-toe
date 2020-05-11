@@ -11,7 +11,7 @@ const initBoard = () =>
   Array.from({ length: AMOUNT_OF_VERTICAL_BOARD_CELLS }, () => CELL_TYPE.EMPTY),
 );
 
-const initialState: GAME = {
+export const initialState: GAME = {
   board: initBoard(),
   turn: PLAYER_TURN.CROSS_TURN,
   isStarted: false,
@@ -20,7 +20,7 @@ const initialState: GAME = {
 
 const PARAMETER_FOR_WIN: number = Number(process.env.REACT_APP_C);
 
-const updateBoard = (oldBoard: CELL_TYPE[][], { cell: [cellCoordX, cellCoordY], cellValue }: IPayload) => {
+export const updateBoard = (oldBoard: CELL_TYPE[][], { cell: [cellCoordX, cellCoordY], cellValue }: IPayload) => {
   return oldBoard.map((row, rowIndex) => {
     if (rowIndex === cellCoordX) {
       return row.map((currentCellvalue, columnIndex) => columnIndex === cellCoordY ? cellValue : currentCellvalue);
