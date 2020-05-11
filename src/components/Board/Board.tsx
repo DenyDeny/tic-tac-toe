@@ -15,11 +15,13 @@ interface IProps {
 
 const Board: React.FunctionComponent<IProps> = ({ game: { board, isStarted, isFinished, turn } }) => {
   const dispatch = useDispatch();
-  const turnTitle =
+  const playerTurn =
     turn === PLAYER_TURN.CROSS_TURN ?
     `${PLAYER_TURN.CROSS_TURN} turn`
     :
     `${PLAYER_TURN.ZERO_TURN} turn`;
+
+  const winner = `Победитель: ${turn}`;
 
   const onCellClick = ({ cell, cellValue, turn }: IPayload, type: CELL_TYPE) => {
     if (type !== CELL_TYPE.EMPTY || isFinished) {
@@ -49,19 +51,8 @@ const Board: React.FunctionComponent<IProps> = ({ game: { board, isStarted, isFi
 
   return (
     <Fragment>
-      <h2>
-        {
-          !isFinished ?
-            turnTitle
-            :
-            `Победитель: ${turn}`
-        }
-      </h2>
-      <div className="Board">
-        {
-          drawBoard()
-        }
-      </div>
+      <h2>{ !isFinished ? playerTurn : winner }</h2>
+      <div className="Board">{ drawBoard() }</div>
     </Fragment>
   )
 };
